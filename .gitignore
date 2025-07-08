@@ -1,0 +1,11 @@
+# VSCode settings
+.vscode/
+
+# PlatformIO build artifacts
+.pio/
+
+# Ignore FlexCAN_T4 local development copy
+lib/FlexCAN_T4/
+
+# Optional: ignore unit test results
+test/.pio/

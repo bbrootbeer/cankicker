@@ -27,8 +27,8 @@ void setup() {
   can1.enableFIFO();
   can1.enableFIFOInterrupt();  // if you're using ISR
   can1.setFIFOFilter(REJECT_ALL);  // clear default filters
-  can1.setFIFOFilter(0, STD, 0);      // accept all STD IDs
-  can1.setFIFOFilter(1, EXT, 0);      // accept all EXT IDs
+  can1.setFIFOFilter(0, 0, STD);      // accept all STD IDs
+  can1.setFIFOFilter(1, 0, EXT);      // accept all EXT IDs
   // can1.setFIFOFilter(0, STD, 0x123);  // only match ID 0x123
   // can1.setFIFOFilter(1, EXT, 0x1ABCDEF0);  // only match this EXT ID
   can1.setBaudRate(500000);

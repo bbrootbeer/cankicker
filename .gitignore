@@ -9,3 +9,6 @@ lib/FlexCAN_T4/
 
 # Optional: ignore unit test results
 test/.pio/
+
+notes.md
+my_readme.md

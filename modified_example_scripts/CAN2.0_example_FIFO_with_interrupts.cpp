@@ -1,27 +1,17 @@
 #include <FlexCAN_T4.h>
 FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> Can0;
 
-#define NUM_TX_MAILBOXES 2
-#define NUM_RX_MAILBOXES 6
+void canSniff(const CAN_message_t &msg);
+
 void setup(void) {
   Serial.begin(115200); delay(400);
+  // pinMode(6, OUTPUT); digitalWrite(6, LOW); /* optional tranceiver enable pin */
   Can0.begin();
-  Can0.setBaudRate(250000);
-  Can0.setMaxMB(NUM_TX_MAILBOXES + NUM_RX_MAILBOXES);
-  for (int i = 0; i<NUM_RX_MAILBOXES; i++){
-    Can0.setMB((FLEXCAN_MAILBOX)i,RX,EXT);
-  }
-  for (int i = NUM_RX_MAILBOXES; i<(NUM_TX_MAILBOXES + NUM_RX_MAILBOXES); i++){
-    Can0.setMB((FLEXCAN_MAILBOX)i,TX,EXT);
-  }
-  Can0.setMBFilter(REJECT_ALL);
-  Can0.enableMBInterrupts();
-  Can0.onReceive(MB0,canSniff);
-  Can0.onReceive(MB1,canSniff);
-  Can0.onReceive(MB2,canSniff);
-  Can0.setMBUserFilter(MB0,0x00,0xFF);
-  Can0.setMBUserFilter(MB1,0x03,0xFF);
-  Can0.setMBUserFilter(MB2,0x0B,0xFF);
+  Can0.setBaudRate(500000);
+  Can0.setMaxMB(16);
+  Can0.enableFIFO();
+  Can0.enableFIFOInterrupt();
+  Can0.onReceive(canSniff);
   Can0.mailboxStatus();
 }
 
@@ -40,4 +30,14 @@ void canSniff(const CAN_message_t &msg) {
 
 void loop() {
   Can0.events();
+
+  // static uint32_t timeout = millis();
+  // if ( millis() - timeout > 200 ) {
+  //   CAN_message_t msg;
+  //   msg.id = random(0x1,0x7FE);
+  //   for ( uint8_t i = 0; i < 8; i++ ) msg.buf[i] = i + 1;
+  //   Can0.write(msg);
+  //   timeout = millis();
+  // }
+
 }

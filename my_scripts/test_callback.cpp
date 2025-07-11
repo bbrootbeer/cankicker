@@ -19,7 +19,7 @@ void handleCAN(const CAN_message_t &msg) {
 }
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); delay(400);
 
   can1.setTX(DEF); // TX22
   can1.setRX(DEF); // RX23
@@ -40,8 +40,8 @@ void setup() {
   can2.enableFIFO();
   can2.enableFIFOInterrupt();
   can2.setFIFOFilter(REJECT_ALL);
-  can2.setFIFOFilter(0, STD);
-  can2.setFIFOFilter(1, EXT);
+  can2.setFIFOFilter(0, 0, STD);
+  can2.setFIFOFilter(1, 0, EXT);
   can2.setBaudRate(500000);
   can2.onReceive(handleCAN);
 }

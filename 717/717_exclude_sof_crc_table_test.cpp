@@ -7,10 +7,15 @@ FlexCAN_T4<CAN1, RX_SIZE_256, TX_SIZE_16> Can0;
 // This should match your generated table what is this? for the table
 extern const uint16_t crc16_table[256];
 
+// its important to remember that ```const uint8_t* data``` is a pointer, to my bytes ```buffer + 1 -> &buffer[1]```
+// "^" is the XOR or bitwise operator
 uint16_t crc16_ccitt_table(const uint8_t* data, size_t len, uint16_t init = 0xFFFF) {
     uint16_t crc = init;
     for (size_t i = 0; i < len; ++i) {
         uint8_t tbl_idx = (crc >> 8) ^ data[i]; // high byte XOR input
+        // 0b1111111111111111 >> 8 = 0b11111111
+        //                    data = 0b10101010
+        //                tbl_indx = 0b01010101
         crc = (crc << 8) ^ crc16_table[tbl_idx];
     }
     return crc;

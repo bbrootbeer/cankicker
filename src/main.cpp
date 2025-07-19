@@ -1,4 +1,20 @@
 // main.cpp
 #include <Arduino.h>
 // #include "..\modified_example_scripts\beta_sample.cpp"
-#include "..\modified_example_scripts\testing_more_interrupts.cpp"
+// #include "..\modified_example_scripts\testing_more_interrupts.cpp"
+// #include "..\new_modified_examples\CAN2.0_example_FIFO_with_interrupts.cpp"
+// #include "..\new_modified_examples\mailboxstatus.cpp"
+// #include "..\new_modified_examples\711.cpp"
+// #include "..\new_modified_examples\try_to_patch.cpp"
+// #include "..\new_modified_examples\711nite.cpp"
+// #include "..\717\717_test1.cpp"
+// #include "..\717\717_exclude_sof_xor.cpp"
+// #include "..\717\717_exclude_sof_crc.cpp"
+#include "..\717\717_exclude_sof_crc_table_test.cpp"
+// #include "..\717\717_include_sof_xor.cpp"
+
+// #include "..\new_modified_examples\"
+// #include "..\new_modified_examples\"
+// #include "..\new_modified_examples\"
+// #include "..\canshark\lilendian_test2.cpp"
+// #include "..\canshark\lilendian_test3.cpp"

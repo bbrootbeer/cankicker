@@ -12,8 +12,8 @@ void setup(void) {
   Can0.setMaxMB(16); // when using fifo this value doesn't apply to receive because RX is handled via dedicated fifo queue, not mailboxes...
   Can0.enableFIFO(); // required for using the fifo receive queue
   Can0.enableFIFOInterrupt(); // required for using the fifo receive queue
-  Can0.onReceive(canSniff);
-//   Can0.onReceive(canKick);
+  // Can0.onReceive(canSniff);
+  Can0.onReceive(canKick);
   Can0.mailboxStatus();
 }
 
@@ -31,7 +31,7 @@ void canSniff(const CAN_message_t &msg) {
 }
 
 void loop() {
-  Can0.events();
+  // Can0.events();
 
 //   static uint32_t timeout = millis();
 //   if ( millis() - timeout > 200 ) {

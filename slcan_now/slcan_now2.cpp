@@ -54,8 +54,8 @@ void sevenOneSeven(const CAN_message_t &msg)
 
     buffer[0] = 0xAA;
     buffer[1] = 0x69;
-        uint32_t can_id = msg.id;
     
+    uint32_t can_id = msg.id;
     if (msg.flags.extended) {
         can_id |= 0x80000000;  // EFF flag
     }
@@ -92,12 +92,14 @@ void sevenOneSeven(const CAN_message_t &msg)
     // buffer[63] = checksum;
 
     // Serial.write(buffer, 64);
+    
+    Serial.write(buffer, 17); // Send only the first 17 bytes (0xAA, 0x69, ID, len, data, crc)
 
-    Serial.print("Buffer: ");
-    for (uint8_t i = 0; i < 64; i++) {
-        if (buffer[i] < 0x10) Serial.print("0");
-        Serial.print(buffer[i], HEX);
-        Serial.print(" ");
-    }
-    Serial.println();
+    // Serial.print("Buffer: ");
+    // for (uint8_t i = 0; i < 64; i++) {
+    //     if (buffer[i] < 0x10) Serial.print("0");
+    //     Serial.print(buffer[i], HEX);
+    //     Serial.print(" ");
+    // }
+    // Serial.println();
 }

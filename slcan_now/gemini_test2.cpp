@@ -24,7 +24,7 @@ void setup(void) {
   Can1.setMaxMB(16); // Use a reasonable number of mailboxes
 
   Can1.onReceive(slcand1); // Register callback for received CAN messages (PRIMARY FOR SAVVYCAN)
-  // Can1.onReceive(canss); // <--- COMMENTED OUT: UNCOMMENT THIS LINE ONLY FOR DEBUGGING IN ARDUINO SERIAL MONITOR
+//   Can1.onReceive(canss); // <--- COMMENTED OUT: UNCOMMENT THIS LINE ONLY FOR DEBUGGING IN ARDUINO SERIAL MONITOR
   Can1.enableMBInterrupts(); // enables all mailboxes to be interrupt enabled
 }
 
@@ -178,3 +178,29 @@ void processSlcanCommand() {
       break;
   }
 }
+
+// debug output //
+// MB 0  OVERRUN: 0  LEN: 4 EXT: 0 TS: 30579 ID: BA Buffer: 1 F9 7 BF
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 30665 ID: 2C4 Buffer: 3 E3 0 20 0 80 61 B5
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 32867 ID: 260 Buffer: 8 FF FF 0 0 0 0 70
+// MB 0  OVERRUN: 0  LEN: 6 EXT: 0 TS: 33144 ID: B0 Buffer: 0 0 0 0 11 1
+// MB 0  OVERRUN: 0  LEN: 6 EXT: 0 TS: 33248 ID: B2 Buffer: 0 0 0 0 11 1
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 33353 ID: 223 Buffer: 5 20 0 0 0 0 0 52
+// MB 0  OVERRUN: 0  LEN: 3 EXT: 0 TS: 36151 ID: 20 Buffer: 0 0 7
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 36229 ID: B4 Buffer: 0 0 0 0 9C 0 0 58
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 36352 ID: 25 Buffer: 0 8 0 2 78 78 78 9F
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 36472 ID: 24 Buffer: 2 0 1 F9 62 5 80 F
+// MB 0  OVERRUN: 0  LEN: 5 EXT: 0 TS: 37836 ID: 262 Buffer: 0 0 0 0 69 
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 38635 ID: 2D0 Buffer: 7 93 9 0 70 0 0 ED
+// MB 0  OVERRUN: 0  LEN: 6 EXT: 0 TS: 39171 ID: B0 Buffer: 0 0 0 0 11 2
+// MB 0  OVERRUN: 0  LEN: 6 EXT: 0 TS: 39276 ID: B2 Buffer: 0 0 0 0 11 2
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 39380 ID: 224 Buffer: 20 0 0 0 0 6B 0 8
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 39632 ID: 4C1 Buffer: 1 0 10 1 0 0 0 0
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 39768 ID: 2C1 Buffer: 8 6 F6 FF AA F7 0 6F
+// MB 0  OVERRUN: 0  LEN: 3 EXT: 0 TS: 42177 ID: 20 Buffer: 0 0 7
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 42255 ID: B4 Buffer: 0 0 0 0 9C 0 0 58
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 42378 ID: 25 Buffer: 0 8 0 2 78 78 78 9F
+// MB 0  OVERRUN: 0  LEN: 4 EXT: 0 TS: 42498 ID: BA Buffer: 1 F8 7 BE
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 42582 ID: 24 Buffer: 2 1 1 F9 62 5 80 10
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 42749 ID: 2C4 Buffer: 3 E1 0 20 0 80 61 B3
+// MB 0  OVERRUN: 0  LEN: 8 EXT: 0 TS: 42870 ID: 260 Buffer: 8 FF FF 0 0 0 0 70

@@ -13,7 +13,7 @@
 // #include "..\717\717_exclude_sof_crc_table_test.cpp"
 // #include "..\slcan_now\slcan_now1.cpp"
 // #include "..\slcan_now\slcan_now2.cpp"
-#include "..\slcan_now\some_ethernet.cpp
+#include "..\slcan_now\some_ethernet.cpp"
 // #include "..\slcan_now\gemini_test1.cpp"
 // #include "..\slcan_now\gemini_test2.cpp"
 // #include "..\717\717_include_sof_xor.cpp"

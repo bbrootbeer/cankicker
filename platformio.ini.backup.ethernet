@@ -13,6 +13,10 @@ platform = teensy
 board = teensy41
 framework = arduino
 lib_ldf_mode = deep
+lib_deps =
+    vjmuzik/NativeEthernet@^1.0.0
+    ; Also ensure FlexCAN_T4 is listed here if you're using it, e.g.:
+    ; t4skforce/FlexCAN_T4@^2.0.0 ; (or whatever version you're using)
 ; we are using a local modified FlexCAN_T4 library
 lib_ignore =
     FlexCAN_T4  ; prevents downloading from Registry or GitHub if name matches
